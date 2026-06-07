@@ -68,26 +68,52 @@ display: inline-block;
     cursor: default;
 }
 
+    {
 <button onclick="revealCoordinates()">Yes</button>
 
 <div id="coordinate-toast" class="bottom-box">
   "just to check you’ve had enough coffee and “turned your brain on” - the coordinates to your first chamber are in the text above."
-</div>
+    }
     
+    {
+        .bottom-left-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+      z-index: 999;
+    }
     
+/* Invisible trap zone  */
+    .invisible-zone {
+      position: absolute;
+      top: 50%;
+      right: 30%;
+      width: 100px;
+      height: 100px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background-color: transparent; 
+      z-index: 500;
+    }
   </style>
 </head>
 
   <body>
 
      <audio id="NoCakeAudio" src="nocakeforyou.mp3" loop></audio>
-  
-/* <!-- Letter Screen --> */
-    <div id="letter-container"> 
-      <div class="letter-window">
 
-        <img src="letter2" class="letter" id="glados letter" />
+    <!-- Invisible zone -->
+  <div onclick="document.getElementById('dont-touch-audio').play()" class="invisible-zone"></div>
+  <audio id="dont-touch-audio" src="donttouch.mp3"></audio>
 
+     <!-- Coob audio -->
+<audio id="cube-audio" src="ohcoob.mp3"></audio>
+
+  <img src="gladosletter.jpg" alt="Main Image" class="main-image">
+    
         <div class="buttons" id="letter-buttons">
           <img src="yes.jpg" class="btn yes-btn" alt="Yes" />
 
@@ -117,7 +143,16 @@ display: inline-block;
 .bottom-box.visible {
   display: block;
 }
-
+           
+<img 
+  id="cube-button"
+  src="coob.jpg"
+  alt="Cube Button"
+  class="bottom-left-button"
+  onclick="document.getElementById('cube-audio').play()" 
+/>
+  
+          
           </div>
   <script>
     
